@@ -7,7 +7,7 @@ v015**[submission v015](https://www.kaggle.com/olumoni/nov-tabplayground/noteboo
 
 It is a presentation repository for my submissions to the Kaggle competition. As such, you will find many scripts, classes, blocks and options which we actively use for our own development purposes but are not directly relevant to reproduce results or use pretrained weights.
 
-![Lasso](images/LassoRegression_plot.png)
+![Lasso](images/v0011/LassoRegression_plot.png)
 
 ## Using pre-trained weights
 

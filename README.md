@@ -31,6 +31,16 @@ $ git clone git@github.com:cc-ai/climategan.git
 $ cd climategan
 $ pip install -r requirements-3.8.2.txt # or `requirements-any.txt` for other Python versions (not tested but expected to be fine)
 ```
+### Load packages
+```
+# Load packages
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, OrdinalEncoder
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+from sklearn import tree
+```
 ### Load Training Data
 ```
 # Load training data
@@ -38,6 +48,14 @@ df = pd.read_csv("../input/tabular-playground-series-nov-2021/train.csv")
 # check for missing values
 #df.isnull().sum()
 df.head()
+```
+
+### Split into target and test
+```
+#Split the data into X and y
+output_col = ['target']
+X = df.drop(['id', 'target'], axis=1)
+y = df[output_col]
 ```
 
 Our pipeline uses [comet.ml](https://comet.ml) to log images. You don't *have* to use their services but we recommend you do as images can be uploaded on your workspace instead of being written to disk.

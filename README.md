@@ -31,6 +31,14 @@ $ git clone git@github.com:cc-ai/climategan.git
 $ cd climategan
 $ pip install -r requirements-3.8.2.txt # or `requirements-any.txt` for other Python versions (not tested but expected to be fine)
 ```
+### Load Training Data
+```
+# Load training data
+df = pd.read_csv("../input/tabular-playground-series-nov-2021/train.csv") 
+# check for missing values
+#df.isnull().sum()
+df.head()
+```
 
 Our pipeline uses [comet.ml](https://comet.ml) to log images. You don't *have* to use their services but we recommend you do as images can be uploaded on your workspace instead of being written to disk.
 

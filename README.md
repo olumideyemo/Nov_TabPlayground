@@ -2,9 +2,9 @@
 
 This repository contains the code for submissions to train the model presented in the [Kaggle Competition](https://www.kaggle.com/c/tabular-playground-series-nov-2021)
 
-v011[submission v011](https://www.kaggle.com/olumoni/nov-tabplayground?scriptVersionId=79984986)**
+[submission v011](https://www.kaggle.com/olumoni/nov-tabplayground?scriptVersionId=79984986)
 
-v015[submission v015](https://www.kaggle.com/olumoni/nov-tabplayground/notebook)**
+[submission v015](https://www.kaggle.com/olumoni/nov-tabplayground/notebook)
 
 It is a presentation repository for my submissions to the Kaggle competition. As such, you will find many scripts, classes, blocks and options which we actively use for our own development purposes but are not directly relevant to reproduce results or use pretrained weights.
 

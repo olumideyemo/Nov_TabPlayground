@@ -134,12 +134,12 @@ matplotlib.rcParams['figure.figsize'] = (10.0, 16)
 # Plot feature importance
 xgb.plot_importance(xgb_clf)
 ```
-
+![Lasso](images/v0011/4_Importance_Plot.png)
 ```
 # Plot gain instead of weight
 xgb.plot_importance(xgb_clf, importance_type="gain")
 ```
-
+![Lasso](images/v0011/5_Gain_Plot.png)
 
 ```
 # RandomSearch CV
@@ -191,6 +191,7 @@ y_pred_xg_final = final_xgb_clf.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred_xg_final)
 print("Accuracy: %.2f%%" % (accuracy * 100))
 ```
+![Lasso](images/v0011/6_FinalXGBoost_Accuracy.png)
 
 Our pipeline uses [comet.ml](https://comet.ml) to log images. You don't *have* to use their services but we recommend you do as images can be uploaded on your workspace instead of being written to disk.
 

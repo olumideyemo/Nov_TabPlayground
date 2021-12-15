@@ -81,7 +81,7 @@ plt.xticks(range(len(df_columns)), df_columns.values, rotation=60)
 plt.margins(0.02)
 plt.show()
 ```
-![Lasso](images/v0011/LassoRegression_plot.png)
+![Lasso](images/v0011/1_LassoRegression_plot.png)
 
 ```
 # Split the data into training and test data
@@ -101,7 +101,7 @@ dt_clf.fit(X_train, y_train)
 y_pred = dt_clf.predict(X_test)
 print(f'Model accuracy score with criterion {CRITERION} index: {accuracy_score(y_test, y_pred):.4f}')
 ```
-![Lasso](images/v0011/LassoRegression_plot.png)
+![Lasso](images/v0011/2_DecisionTree_AccuracyScore.png)
 
 Our pipeline uses [comet.ml](https://comet.ml) to log images. You don't *have* to use their services but we recommend you do as images can be uploaded on your workspace instead of being written to disk.
 

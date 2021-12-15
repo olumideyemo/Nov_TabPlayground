@@ -191,7 +191,11 @@ y_pred_xg_final = final_xgb_clf.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred_xg_final)
 print("Accuracy: %.2f%%" % (accuracy * 100))
 ```
-![Lasso](images/v0011/6_FinalXGBoost_Accuracy.png)
+![XGBoost pic](images/v0011/6_FinalXGBoost_Accuracy.png)
+
+### Best Score but not final score
+![XGBoost pic](images/v0011/7_Kaggle_BestScore.png)
+
 
 Our pipeline uses [comet.ml](https://comet.ml) to log images. You don't *have* to use their services but we recommend you do as images can be uploaded on your workspace instead of being written to disk.
 

@@ -103,6 +103,28 @@ print(f'Model accuracy score with criterion {CRITERION} index: {accuracy_score(y
 ```
 ![Lasso](images/v0011/2_DecisionTree_AccuracyScore.png)
 
+### XGBoost
+```
+import xgboost as xgb # XGBoost typically uses the alias "xgb"
+
+# Instatiate a XGBClassifier 
+xgb_clf = xgb.XGBClassifier(n_estimators= 12, random_state=43, eval_metric='mlogloss')
+
+# Inspect the parameters
+#xgb_clf.get_params()
+
+# make predictions for test data
+xgb_clf.fit(X_train, y_train)
+
+# Evaluate the DT on the test set
+y_pred_xg = xgb_clf.predict(X_test)
+
+# evaluate predictions
+accuracy = accuracy_score(y_test, y_pred_xg)
+print("Accuracy: %.2f%%" % (accuracy * 100))
+# print("Baseline accuracy:", accuracy)
+```
+
 Our pipeline uses [comet.ml](https://comet.ml) to log images. You don't *have* to use their services but we recommend you do as images can be uploaded on your workspace instead of being written to disk.
 
 If you want to use Comet, make sure you have the [appropriate configuration in place (API key and workspace at least)](https://www.comet.ml/docs/python-sdk/advanced/#non-interactive-setup)

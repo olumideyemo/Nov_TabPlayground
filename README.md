@@ -125,6 +125,73 @@ print("Accuracy: %.2f%%" % (accuracy * 100))
 # print("Baseline accuracy:", accuracy)
 ```
 
+###feature Importance and Gain
+```
+# Checking feature importance
+import matplotlib
+matplotlib.rcParams['figure.figsize'] = (10.0, 16)
+
+# Plot feature importance
+xgb.plot_importance(xgb_clf)
+```
+
+```
+# Plot gain instead of weight
+xgb.plot_importance(xgb_clf, importance_type="gain")
+```
+
+
+```
+# RandomSearch CV
+
+#from sklearn.model_selection import RandomizedSearchCV
+
+# Define a parameter grid
+#rs_param_grid = {
+    # max_depth: values from 3 to 12
+#    'max_depth': list((range(3,12))),
+    # alpha: values 0, .001, .01, .1
+#    'alpha': [0,0.001, 0.01,0.1,1],
+    # subsample: values 0.25,0.5,0.75, 1
+#    'subsample': [0.5,0.75,1],
+    # learning rate: ten values between 0.01 - 0.5
+#    'learning_rate': np.linspace(0.01,0.5, 10),
+    # n_estimators: values 10, 25, 40
+#    'n_estimators': [10, 25, 40]
+#    }
+
+
+# Insantiate XGBoost Clasifier 
+#xgb_clf_rs = xgb.XGBClassifier(eval_metric='mlogloss', random_state=43)
+
+# Instantiate RandomizedSearchCV()
+#xgb_rs = RandomizedSearchCV(estimator=xgb_clf_rs,param_distributions=rs_param_grid, 
+#                                cv=3, n_iter=5, verbose=2, random_state=43)
+
+# Train the model on the training set
+#xgb_rs.fit(X_train, y_train)
+
+# Print the best parameters and highest accuracy
+#print("Best parameters found: ", xgb_rs.best_params_)
+#print("Best accuracy found: ", xgb_rs.best_score_)
+```
+
+```
+#instantiate final model
+final_xgb_clf = xgb.XGBClassifier(eval_metric='mlogloss', random_state=43, 
+                               subsample= 1, n_estimators= 40, max_depth= 6,
+                               learning_rate= 0.44555555555555554, alpha= 0.01)
+# make predictions for test data
+final_xgb_clf.fit(X_train, y_train)
+
+# Evaluate the DT on the test set
+y_pred_xg_final = final_xgb_clf.predict(X_test)
+
+# evaluate predictions
+accuracy = accuracy_score(y_test, y_pred_xg_final)
+print("Accuracy: %.2f%%" % (accuracy * 100))
+```
+
 Our pipeline uses [comet.ml](https://comet.ml) to log images. You don't *have* to use their services but we recommend you do as images can be uploaded on your workspace instead of being written to disk.
 
 If you want to use Comet, make sure you have the [appropriate configuration in place (API key and workspace at least)](https://www.comet.ml/docs/python-sdk/advanced/#non-interactive-setup)

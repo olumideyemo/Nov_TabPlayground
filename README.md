@@ -83,6 +83,25 @@ plt.show()
 ```
 ![Lasso](images/v0011/LassoRegression_plot.png)
 
+```
+# Split the data into training and test data
+X_train, X_test, y_train, y_test =  train_test_split(X,y,test_size = 0.30, random_state= 44)
+
+# Choose the criterion and max depth of the tree you want to use
+CRITERION = 'gini'
+MAX_DEPTH = 3
+
+# Set up the DT classifier
+dt_clf = DecisionTreeClassifier(criterion=CRITERION, max_depth=MAX_DEPTH, random_state=43)
+
+# Train the DT classifier
+dt_clf.fit(X_train, y_train)
+
+# Evaluate the DT on the test set
+y_pred = dt_clf.predict(X_test)
+print(f'Model accuracy score with criterion {CRITERION} index: {accuracy_score(y_test, y_pred):.4f}')
+```
+![Lasso](images/v0011/LassoRegression_plot.png)
 
 Our pipeline uses [comet.ml](https://comet.ml) to log images. You don't *have* to use their services but we recommend you do as images can be uploaded on your workspace instead of being written to disk.
 
